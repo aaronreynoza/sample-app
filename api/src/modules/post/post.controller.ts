@@ -20,15 +20,15 @@ export async function createNewPostHandler(request: any, reply: FastifyReply) {
 }
 
 export async function deletePostHandler(request: any, reply: FastifyReply) {
-  const body = request.body;
   try {
     await request.jwtVerify();
     const tokenUsername = request?.user.username;
-    const post = await findPost(body);
+    const postId = request.params.postId
+    const post = await findPost(request);
     if (tokenUsername !== post?.usersId) {
       return reply.code(401).send("Unauthorized.");
     }
-    await deletePost(body);
+    await deletePost(postId);
     return reply.code(200).send("Post deleted successfully");
   } catch (e) {
     console.error(e);

@@ -10,20 +10,19 @@ export async function createPost(input: any) {
   return post;
 }
 
-export async function deletePost(input: any) {
-  const { postId } = input;
-
+export async function deletePost(postId: string) {
   return prisma.posts.delete({
     where: { id: postId },
   });
 }
 
 export async function findPost(req: any) {
-  const { postId } = req;
-
-  return prisma.posts.findUnique({
+  const { postId } = req.params;
+  const x = await prisma.posts.findUnique({
     where: { id: postId },
   });
+  console.log(x)
+  return x;
 }
 
 export async function findPosts() {

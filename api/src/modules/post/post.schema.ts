@@ -39,27 +39,18 @@ export const readPostsResponseSchema = {
   },
 };
 
-export const deletePostSchema = {
-  type: "object",
-  properties: {
-    postId: { type: "string" },
-  },
-  required: ["postId"],
-};
 
 export const deletePostResponseSchema = {
   type: "object",
   properties: {
     id: { type: "string" },
-    deletePostSchema,
   },
-  required: ["id", "deletePostSchema"],
+  required: ["id"],
 };
 
 const postSchemas = {
   createPostSchema,
   createPostResponseSchema,
-  deletePostSchema,
   deletePostResponseSchema,
   getPostSchema,
   readPostsResponseSchema,

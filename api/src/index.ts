@@ -6,6 +6,7 @@ import userRoutes from "./modules/user/user.route";
 import { userSchemas } from "./modules/user/user.schema";
 import postRoutes from "./modules/post/post.route";
 import { getPostsHandler } from "./modules/post/post.controller";
+// import fastifyPlugin from "fastify-plugin" 
 
 export const server = Fastify();
 

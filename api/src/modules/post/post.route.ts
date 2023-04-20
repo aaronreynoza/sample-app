@@ -5,7 +5,6 @@ import {
   // getPostSchema,
   readPostsResponseSchema,
   createPostResponseSchema,
-  deletePostSchema,
   deletePostResponseSchema,
 } from "./post.schema";
 
@@ -42,10 +41,9 @@ async function postRoutes(server: FastifyInstance) {
   );
 
   server.delete(
-    "/deletepost",
+    "/post/:postId",
     {
       schema: {
-        body: deletePostSchema,
         response: { 201: deletePostResponseSchema },
       },
     },
