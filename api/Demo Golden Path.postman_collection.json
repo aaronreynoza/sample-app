@@ -1,7 +1,7 @@
 {
 	"info": {
 		"_postman_id": "431f56fb-58f0-482f-934a-80d8d958f90a",
-		"name": "Contra Golden Path",
+		"name": "Demo Golden Path",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
 	"item": [
@@ -21,9 +21,9 @@
 					"raw": "{\n    \"username\": \"aaronreynoza\",\n    \"password\": \"12345678\"\n}"
 				},
 				"url": {
-					"raw": "{{CONTRA_URL}}/register",
+					"raw": "{{SITE_URL}}/register",
 					"host": [
-						"{{CONTRA_URL}}"
+						"{{SITE_URL}}"
 					],
 					"path": [
 						"register"
@@ -61,39 +61,12 @@
 					"raw": "{\n    \"username\": \"aaronreynoza\",\n    \"password\": \"12345678\"\n}"
 				},
 				"url": {
-					"raw": "{{CONTRA_URL}}/login",
+					"raw": "{{SITE_URL}}/login",
 					"host": [
-						"{{CONTRA_URL}}"
+						"{{SITE_URL}}"
 					],
 					"path": [
 						"login"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "Get all posts",
-			"request": {
-				"auth": {
-					"type": "bearer",
-					"bearer": [
-						{
-							"key": "token",
-							"value": "{{USER_TOKEN}}",
-							"type": "string"
-						}
-					]
-				},
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "{{CONTRA_URL}}/posts",
-					"host": [
-						"{{CONTRA_URL}}"
-					],
-					"path": [
-						"posts"
 					]
 				}
 			},
@@ -134,15 +107,42 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n    \"username\": \"aaronreynoza\",\n    \"text\": \"Hello World!zzs\"\n}"
+					"raw": "{\n    \"username\": \"aaronreynoza\",\n    \"text\": \"Hello World!\"\n}"
 				},
 				"url": {
-					"raw": "{{CONTRA_URL}}/post",
+					"raw": "{{SITE_URL}}/post",
 					"host": [
-						"{{CONTRA_URL}}"
+						"{{SITE_URL}}"
 					],
 					"path": [
 						"post"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get all posts",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{USER_TOKEN}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{SITE_URL}}/posts",
+					"host": [
+						"{{SITE_URL}}"
+					],
+					"path": [
+						"posts"
 					]
 				}
 			},
@@ -175,9 +175,9 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "{{CONTRA_URL}}/post/{{POST_ID}}",
+					"raw": "{{SITE_URL}}/post/{{POST_ID}}",
 					"host": [
-						"{{CONTRA_URL}}"
+						"{{SITE_URL}}"
 					],
 					"path": [
 						"post",
@@ -203,9 +203,9 @@
 				"method": "DELETE",
 				"header": [],
 				"url": {
-					"raw": "{{CONTRA_URL}}/post/{{POST_ID}}",
+					"raw": "{{SITE_URL}}/post/{{POST_ID}}",
 					"host": [
-						"{{CONTRA_URL}}"
+						"{{SITE_URL}}"
 					],
 					"path": [
 						"post",
