@@ -1,3 +1,3 @@
 # terraform.tfvars
-project_id = "contra-application"
+project_id = "sample-full-app"
 region     = "us-central1"

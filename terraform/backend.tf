@@ -1,6 +1,6 @@
-terraform {
- backend "gcs" {
-   bucket  = "contra-application-tfstate"
-   prefix  = "terraform/state"
- }
-}
+# terraform {
+#  backend "gcs" {
+#    bucket  = "sample-full-app-tfstate"
+#    prefix  = "terraform/state"
+#  }
+# }

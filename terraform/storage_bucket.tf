@@ -1,6 +1,6 @@
 resource "google_storage_bucket" "default" {
-  project       = "contra-application"
-  name          = "contra-application-tfstate"
+  project       = "sample-full-app"
+  name          = "sample-full-app-tfstate"
   force_destroy = false
   location      = "US"
   storage_class = "STANDARD"
