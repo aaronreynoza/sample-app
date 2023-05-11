@@ -20,17 +20,26 @@ spec:
       labels:
         {{- include "demo-app.selectorLabels" . | nindent 8 }}
     spec:
-      {{- with .Values.imagePullSecrets }}
-      imagePullSecrets:
-        {{- toYaml . | nindent 8 }}
-      {{- end }}
       containers:
         - name: {{ .Chart.Name }}
           image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
           imagePullPolicy: {{ .Values.image.pullPolicy }}
+          env:
+          - name: PORT
+            value: "3000"
+          - name: DATABASE_URL
+            valueFrom:
+              secretKeyRef:
+                name: sample-app-cloudsql
+                key: DATABASE_URL
+          - name: SECRET
+            valueFrom:
+              secretKeyRef:
+                name: sample-app-cloudsql
+                key: SECRET
           ports:
             - name: http
-              containerPort: {{ .Values.service.port }}
+              containerPort: {{ .Values.image.port }}
               protocol: TCP
           livenessProbe:
             httpGet:
