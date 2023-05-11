@@ -18,11 +18,9 @@ export async function deletePost(postId: string) {
 
 export async function findPost(req: any) {
   const { postId } = req.params;
-  const x = await prisma.posts.findUnique({
+  return await prisma.posts.findUnique({
     where: { id: postId },
   });
-  console.log(x)
-  return x;
 }
 
 export async function findPosts() {
