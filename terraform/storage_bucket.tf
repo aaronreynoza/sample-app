@@ -1,4 +1,4 @@
-resource "google_storage_bucket" "default" {
+resource "google_storage_bucket" "terraform_state" {
   project       = "sample-full-app"
   name          = "sample-full-app-tfstate"
   force_destroy = false
